@@ -1,0 +1,17 @@
+sudo su - awx
+
+source /var/lib/awx/venv/ansible/bin/activate
+
+export PYTHONPATH="/var/lib/awx/venv/ansible/lib/python3.6/site-packages:"
+
+mkdir -p insights/project
+
+cd insights
+
+vi insights.yml
+
+export ANSIBLE_ACTION_PLUGINS=/var/lib/awx/venv/awx/lib/python3.6/site-packages/awx/playbooks/action_plugins/
+
+ansible-playbook insights.yml
+
+deactivate
